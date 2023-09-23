@@ -11,7 +11,7 @@ const salt =10;
 
 const app = express();
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'https://nextjsfrontend-six.vercel.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(cors(
     {
-        origin:["http://localhost:3000"],
+        origin:["https://nextjsfrontend-six.vercel.app"],
         methods:["POST","GET"],
         credentials:true
     }
