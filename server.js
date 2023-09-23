@@ -29,7 +29,9 @@ app.use(cookieParser());
 mongoose.connect('mongodb+srv://veeramallavamsi72:Vamsi2662@cluster0.65d9vmj.mongodb.net/?retryWrites=true&w=majority').then(
     ()=>console.log("Db connected......")
 ).catch(err=>console.log(err))
-
+app.get("/",(req,res)=>{
+    return res.json("Hello Man")
+})
 app.get("/getallcharts",async(req,res)=>{
     try{
         const chartData = await CoinChart.find();
@@ -172,4 +174,4 @@ app.post('/modaldata',async(req,res)=>{
     return res.json("notexist")}
 })
 
-app.listen(2002,()=>console.log("server running...."))
+app.listen(2032,()=>console.log("server running...."))
