@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cors(
     {
         origin:["https://nextjsfrontend-six.vercel.app"],
-        methods:["POST","GET"],
+        methods:["GET","HEAD","PUT","PATCH","POST","DELETE"],
         credentials:true
     }
 ));
