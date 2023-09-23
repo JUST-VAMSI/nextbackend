@@ -118,7 +118,7 @@ app.post("/login",async(req,res)=>{
 
             if(passwordCheck)
             {
-                const token = jwt.sign({email},"jwt-secret-key",{expiresIn:'1d'});
+                const token = await jwt.sign({email},"jwt-secret-key",{expiresIn:'1d'});
                 await res.cookie('token',token);
                 return res.json("success");
             }
