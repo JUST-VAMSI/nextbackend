@@ -174,4 +174,5 @@ app.post('/modaldata',async(req,res)=>{
     return res.json("notexist")}
 })
 
-app.listen(2032,()=>console.log("server running...."))
+app.listen(process.env.PORT || 4000);
+module.exports = app
