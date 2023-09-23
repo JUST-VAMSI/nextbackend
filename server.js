@@ -120,6 +120,7 @@ app.post("/login",async(req,res)=>{
             {
                 const token = await jwt.sign({email},"jwt-secret-key",{expiresIn:'1d'});
                 await res.cookie('token',token,{ secure: true });
+                console.log("Cookie set");
                 return res.json("success");
             }
             else{
