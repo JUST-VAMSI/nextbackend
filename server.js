@@ -122,6 +122,12 @@ app.post("/login",async(req,res)=>{
             if(passwordCheck)
             {
                 const token = jwt.sign({email},"jwt-secret-key",{expiresIn:"1d"});
+                res.cookie('myCookie', 'nemasthe123', {
+    maxAge: 3600000, // Cookie expires in 1 hour (in milliseconds)
+    httpOnly: true,  // Cookie is accessible only through HTTP(S)
+    secure: true,    // Cookie is sent only over HTTPS
+    sameSite: 'None' // Allows cross-site access
+  });
                 res.cookie("token",token,{ httpOnly: true, secure: false });
                 return res.json({status:"success",tok:token});
             }
