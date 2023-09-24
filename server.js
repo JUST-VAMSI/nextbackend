@@ -101,7 +101,7 @@ app.post("/signup",async(req,res)=>{
         console.log(e);
     }
 })
-app.get('/logout',(req,res)=>{
+app.get('/logout', function(req,res)=>{
     res.clearCookie('token');
     return res.json({Status:"Success"});
 })
