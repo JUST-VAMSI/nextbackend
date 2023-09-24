@@ -123,7 +123,7 @@ app.post("/login",async(req,res)=>{
             {
                 const token = jwt.sign({email},"jwt-secret-key",{expiresIn:"1d"});
                 res.cookie("token",token,{maxAge:86400000,httpOnly:true,secure:true, sameSite:'None' });
-                return res.json({status:"success",tok:token});
+                return res.json({status:"success"});
             }
             else{
                 return res.json("invalidpassword");
