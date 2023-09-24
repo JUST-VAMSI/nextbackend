@@ -102,7 +102,7 @@ app.post("/signup",async(req,res)=>{
     }
 })
 app.get('/logout',(req,res)=>{
-    res.clearCookie('token',{sameSite:'None'});
+    res.clearCookie('token',{domain:"*.vercel.app"httpOnly:true,secure:true,sameSite:'None'});
     return res.json({Status:"Success"});
 })
 
@@ -122,7 +122,7 @@ app.post("/login",async(req,res)=>{
             if(passwordCheck)
             {
                 const token = jwt.sign({email},"jwt-secret-key",{expiresIn:"1d"});
-                res.cookie("token",token,{maxAge:86400000, sameSite:'None' });
+                res.cookie("token",token,{maxAge:86400000,httpOnly:true,secure:true, sameSite:'None' });
                 return res.json({status:"success",tok:token});
             }
             else{
