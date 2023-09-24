@@ -120,7 +120,8 @@ app.post("/login",async(req,res)=>{
             if(passwordCheck)
             {
                 const token = jwt.sign({email},"jwt-secret-key",{expiresIn:'1d'});
-                res.cookie('token',token);
+                // res.cookie('token',token);
+                res.cookie('token',1254678);
                 console.log("Cookie set");
                 return res.json("success");
             }
