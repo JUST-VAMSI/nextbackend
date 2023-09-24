@@ -123,7 +123,7 @@ app.post("/login",async(req,res)=>{
                 // res.cookie('token',token);
                 await res.cookie('token',1254678);
                 console.log("Cookie set");
-                return res.json("success");
+                return res.json({status:"success",tok:token});
             }
             else{
                 return res.json("invalidpassword");
