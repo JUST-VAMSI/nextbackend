@@ -11,8 +11,8 @@ const salt =10;
 
 const app = express();
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://nextjsfrontend-six.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Origin', "https://nextjsfrontend-six.vercel.app");
+    res.header('Access-Control-Allow-Methods', ["GET","HEAD","PUT","PATCH","POST","DELETE"]);
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.header('Access-Control-Allow-Credentials', true);
     next();
@@ -100,7 +100,7 @@ app.post("/signup",async(req,res)=>{
     }
 })
 app.get('/logout',(req,res)=>{
-    res.clearCookie('token');
+    res.clearCookie("token");
     return res.json({Status:"Success"});
 })
 
@@ -119,8 +119,8 @@ app.post("/login",async(req,res)=>{
 
             if(passwordCheck)
             {
-                const token = jwt.sign(email,"jwt-secret-key",{expiresIn:'1d'});
-                res.cookie('token',token,{ httpOnly: true, secure: false });
+                const token = jwt.sign({email},"jwt-secret-key",{expiresIn:"1d"});
+                res.cookie("token",token,{ httpOnly: true, secure: false });
                 return res.json({status:"success",tok:token});
             }
             else{
