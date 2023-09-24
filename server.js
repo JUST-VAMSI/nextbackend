@@ -102,7 +102,7 @@ app.post("/signup",async(req,res)=>{
     }
 })
 app.get('/logout',(req,res)=>{
-    res.clearCookie('token',{domain:'nextjsfrontend-six.vercel.app',httpOnly: true, secure: true,sameSite:'None'});
+    res.clearCookie('token',{httpOnly: true, secure: true,sameSite:'None'});
     return res.json({Status:"Success"});
 })
 
